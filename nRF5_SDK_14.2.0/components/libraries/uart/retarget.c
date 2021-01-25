@@ -99,7 +99,7 @@ int __getchar(FILE * p_file)
 
 /*YBERNARD: need to update __putchar definition if moving to SES V3.40*/
 /*https://devzone.nordicsemi.com/f/nordic-q-a/34784/conflicting-types-for-_putchar?ReplySortBy=Votes&ReplySortOrder=Descending*/
-
+/*https://devzone.nordicsemi.com/f/nordic-q-a/34784/conflicting-types-for-_putchar*/
   #if defined(__SES_VERSION) && __SES_VERSION == 34000
     int __putchar(int ch, __printf_tag_ptr p_file)
     {
@@ -109,7 +109,8 @@ int __getchar(FILE * p_file)
         return ch;
     }
   #else
-    int __putchar(int ch, FILE *  p_file)
+
+    int __putchar(int ch, __printf_tag_ptr p_file)
     {
         UNUSED_PARAMETER(p_file);
 
